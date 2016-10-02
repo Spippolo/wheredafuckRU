@@ -7,5 +7,6 @@ defmodule WheredafuckruApi.Router do
 
   scope "/api", WheredafuckruApi do
     pipe_through :api
+    resources "/positions", PositionController, except: [:new, :edit]
   end
 end

@@ -40,11 +40,28 @@ class UserMap extends Component {
     if (this.props.mapHash) {
       if (this.state.data.length > 0) {
         return (<div className="box">
-          <ul>{this.state.data.map(
-              el =>
-                <li key={el.id}>{el.id}</li>
+          <table className="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Identifier</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Inserted at</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.data.map(el =>
+                <tr key={el.id}>
+                  <td>{el.id}</td>
+                  <td>{el.identifier}</td>
+                  <td>{el.latitude}</td>
+                  <td>{el.longitude}</td>
+                  <td>{el.inserted_at}</td>
+                </tr>
               )}
-          </ul>
+            </tbody>
+          </table>
         </div>);
       }
       return (<div className="box">Loading...</div>);

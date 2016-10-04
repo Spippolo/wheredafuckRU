@@ -4,7 +4,8 @@ defmodule WheredafuckruApi.PositionController do
   alias WheredafuckruApi.Position
 
   def index(conn, _params) do
-    positions = Repo.all(Position)
+    query = from p in Position, where: p.identifier == ^_params["identifier"]
+    positions = Repo.all(query)
     render(conn, "index.json", positions: positions)
   end
 

@@ -13,7 +13,7 @@ class App extends Component {
   }
 
   render() {
-    return (<div>
+    return (<div className="container is-fluid">
       <HashForm setMapHash={this.setMapHash.bind(this)} />
       <UserMap mapHash={this.state.mapHash} />
     </div>);

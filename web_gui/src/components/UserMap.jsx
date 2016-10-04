@@ -39,11 +39,17 @@ class UserMap extends Component {
   render() {
     if (this.props.mapHash) {
       if (this.state.data.length > 0) {
-        return (<ul>{this.state.data.map(el => <li key={el.id}>{el.id}</li>)}</ul>);
+        return (<div className="box">
+          <ul>{this.state.data.map(
+              el =>
+                <li key={el.id}>{el.id}</li>
+              )}
+          </ul>
+        </div>);
       }
-      return (<div>Loading...</div>);
+      return (<div className="box">Loading...</div>);
     }
-    return (<div>No hash</div>);
+    return (<div className="box">No hash</div>);
   }
 }
 

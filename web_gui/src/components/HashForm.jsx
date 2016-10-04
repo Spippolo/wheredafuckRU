@@ -17,9 +17,12 @@ class HashForm extends Component {
   }
 
   render() {
-    return (<div>
-      <input onChange={this.saveMapHash.bind(this)} />
-      <button onClick={this.setMapHash.bind(this)}>Save</button>
+    return (<div className="box">
+      <label className="label">Map ID</label>
+      <p className="control has-addons">
+        <input className="input" onChange={this.saveMapHash.bind(this)} />
+        <button className="button is-primary" onClick={this.setMapHash.bind(this)}>Search</button>
+      </p>
     </div>);
   }
 }

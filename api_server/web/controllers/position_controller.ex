@@ -3,8 +3,10 @@ defmodule WheredafuckruApi.PositionController do
 
   alias WheredafuckruApi.Position
 
-  def index(conn, _params) do
-    query = from p in Position, where: p.identifier == ^_params["identifier"]
+  def index(conn, %{"identifier" => identifier}) do
+    query = from Position,
+        where: [identifier: ^identifier],
+        order_by: [desc: :inserted_at]
     positions = Repo.all(query)
     render(conn, "index.json", positions: positions)
   end
